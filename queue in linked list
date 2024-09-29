@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<Stdlib.h>
+
+struct Node{
+    int data;
+    struct Node*next;
+}*FRONT = NULL,*REAR =NULL;
+
+void Enqueue(int val){
+    struct Node* new;
+    if(FRONT == NULL && REAR == NULL){
+        new = (struct Node*)malloc(sizeof(struct Node));
+        new->data=val;
+        new->next=NULL;
+        FRONT =new;
+        REAR=new;
+    }
+    else{
+        new=(struct Node*)malloc(sizeof(struct Node));
+        new->data=val;
+        REAR->next=new;
+        REAR=new;
+    }
+}
+
+int Dequeue(){
+    struct Node*temp;
+    int pop;
+    if(FRONT == NULL && REAR == NULL){
+        printf("Underflow\n");
+        return 0;
+    }
+    else if(FRONT == REAR){
+        temp=FRONT;
+        pop=FRONT->data;
+        FRONT=NULL;
+        REAR=NULL;
+        free(temp);
+        return pop;
+    }
+    else{
+        temp=FRONT;
+        pop=FRONT->data;
+        FRONT=FRONT->next;
+        free(temp);
+        return pop;
+    }
+}
+
+int peek(){
+    if(FRONT==NULL && REAR )
+}
+
+int main(){
+    Enqueue(67);
+    Enqueue(67);
+    Enqueue(67);
+    Enqueue(67);
+    Enqueue(67);
+}
